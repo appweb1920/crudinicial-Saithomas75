@@ -6,9 +6,13 @@
     <title>Enlistar</title>
 </head>
 <body>
-    @if(!is_null($detalle))
-        @foreach($detalle as $d)
-            <p>{{$d->tipo_basura}} | {{$p->apertura}} | {{$p->cierre}}</p>
+    @if(!is_null($puntos_reciclaje))
+        @foreach($puntos_reciclaje as $p)
+            <p>{{$p->tipo_basura}}</p>
+                @foreach($p->getRecolector() as $r)
+                    <p> - {{$r->nombre}}</p>
+                @endforeach
+            <br>
         @endforeach
     @endif
 </body>

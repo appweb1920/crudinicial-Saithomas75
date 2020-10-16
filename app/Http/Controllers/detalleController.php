@@ -18,12 +18,8 @@ class detalleController extends Controller
      */
     public function index()
     {
-        $detalle = detalle::all();
-        $detalle = DB::table('detalle')->join('puntos_reciclaje', 'detalle.pr_id', '=', 'puntos_reciclaje.id_pr')->join('recolectores', 'detalle.r_id', '=', 'recolectores.id_r')->select('puntos_reciclaje.tipo_basura', 'recolectores.nombre')->get();
-        #return view("enlistarRelacion")->with('detalle', $detalle);
-
-        print_r($detalle);
-        #print_r($detalle['items:protected'][0]['tipo_basura']);
+        $puntos_reciclaje = puntos_reciclaje::all();
+        return view('enlistarRelacion')->with('puntos_reciclaje', $puntos_reciclaje);
     }
 
     /**
