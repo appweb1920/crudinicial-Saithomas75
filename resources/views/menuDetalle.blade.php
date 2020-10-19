@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
             html, body {
                 background-color: #fff;
@@ -33,6 +34,10 @@
                 text-align: center;
             }
 
+            .title {
+                font-size: 84px;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -42,11 +47,30 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
         </style>
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/PuntoReciclaje">Reciclaje</a></li>
+      <li><a href="/Recolector">Recolector</a></li>
+      <li><a href="/Detalle">Detalle</a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="flex-center position-ref full-height">
     <div class="content">
+        <div class="title m-b-md">
+            Detalle
+        </div>
         <div class="links">
             <a href="/Detalle/CrearRelacion">Relacionar</a>
             <a href="/Detalle/Enlistar">Mostrar Relaciones</a>

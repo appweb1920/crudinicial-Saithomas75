@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Relación</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
             html, body {
                 background-color: #fff;
@@ -32,11 +33,33 @@
             .content {
                 text-align: center;
             }
-        </style>
+
+            .title {
+                font-size: 72px;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+    </style>
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/Detalle">Detalle</a></li>
+      <li><a href="/Detalle/CrearRelacion">Crear</a></li>
+      <li><a href="/Detalle/Enlistar">Enlistar</a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="flex-center position-ref full-height">
     <div class="content">
+        <div class="title m-b-md">
+            Crear relacion
+        </div>
         <form action="/AlmacenarRelacion" method="POST">
             @csrf
             <select name="punto">

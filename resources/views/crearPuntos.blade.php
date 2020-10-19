@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Punto</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
             html, body {
                 background-color: #fff;
@@ -32,11 +33,34 @@
             .content {
                 text-align: center;
             }
+
+            .title {
+                font-size: 72px;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
         </style>
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/PuntoReciclaje">Punto Reciclaje</a></li>
+      <li><a href="/PuntoReciclaje/CrearPunto">Crear</a></li>
+      <li><a href="/PuntoReciclaje/Enlistar">Enlistar</a></li>
+      <li><a href="/PuntoReciclaje/Editar">Editar</a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="flex-center position-ref full-height">
     <div class="content">
+        <div class="title m-b-md">
+            Crear punto de reciclaje
+        </div>
         <form action="/AlmacenarPunto" method="POST">
             @csrf
             <input type="text" name="tipo" placeholder="Tipo de Basura">
