@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+
+    protected $fillable = [
+        'name', 'description'
+    ];
+
     public function users()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        //relación muchos a muchos
+        return $this->belongsToMany(User::class)->withTimestamps(); //Se actualizan las fechas en la tabla pivote
     }
 }

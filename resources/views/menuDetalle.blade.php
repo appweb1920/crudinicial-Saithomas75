@@ -58,7 +58,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
+      <li class="active"><a href="/home">Indice</a></li>
       <li><a href="/PuntoReciclaje">Reciclaje</a></li>
       <li><a href="/Recolector">Recolector</a></li>
       <li><a href="/Detalle">Detalle</a></li>
