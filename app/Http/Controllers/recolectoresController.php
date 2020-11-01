@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class recolectoresController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index3(Request $request)
+    {
+        $request->user()->authorizeRoles(['user', 'admin']);
+        return view('menuRecolector');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,11 +24,13 @@ class recolectoresController extends Controller
      */
     public function index()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $recolectores = recolectores::all();
         return view("enlistarRecolector")->with('recolectores',$recolectores);
     }
     public function index2()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $recolectores = recolectores::all();
         return view("editarRecolector")->with('recolectores',$recolectores);
     }
@@ -29,6 +41,7 @@ class recolectoresController extends Controller
      */
     public function create()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         return view("crearRecolector");
     }
 

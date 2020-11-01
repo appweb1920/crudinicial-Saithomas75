@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class puntos_rController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index3(Request $request)
+    {
+        $request->user()->authorizeRoles(['user', 'admin']);
+        return view('menuPuntoReciclaje');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,12 +24,14 @@ class puntos_rController extends Controller
      */
     public function index()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $puntos_reciclaje = puntos_reciclaje::all();
         return view("enlistarPunto")->with('puntos_reciclaje',$puntos_reciclaje);
     }
 
     public function index2()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $puntos_reciclaje = puntos_reciclaje::all();
         return view("editarPunto")->with('puntos_reciclaje',$puntos_reciclaje);
     }
@@ -31,6 +43,7 @@ class puntos_rController extends Controller
      */
     public function create()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         return view("crearPuntos");
     }
 

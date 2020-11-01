@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/PuntoReciclaje', function () {
-    return view('menuPuntoReciclaje');
-});
+Route::get('/PuntoReciclaje', 'puntos_rController@index3');
 
 Route::get('/PuntoReciclaje/CrearPunto', "puntos_rController@create");
 Route::post('/AlmacenarPunto', "puntos_rController@store");
@@ -29,9 +27,7 @@ Route::get('/EditarPunto/{id_pr}',  "puntos_rController@MuestraEdicion");
 Route::post('/EditarPunto/guardaEdicion', "puntos_rController@guardaEdicion");
 Route::get('/EliminaPunto/{id_pr}',  "puntos_rController@borra");
 
-Route::get('/Recolector', function () {
-    return view('menuRecolector');
-});
+Route::get('/Recolector', 'recolectoresController@index3');
 
 Route::get('/Recolector/CrearRecolector', "recolectoresController@create");
 Route::post('/AlmacenarRecolector', "recolectoresController@store");
@@ -41,9 +37,7 @@ Route::get('/EditarRecolector/{id_r}',  "recolectoresController@MuestraEdicion")
 Route::post('/EditarRecolector/guardaEdicionR', "recolectoresController@guardaEdicionR");
 Route::get('/EliminaRecolector/{id_r}',  "recolectoresController@borra");
 
-Route::get('/Detalle', function () {
-    return view('menuDetalle');
-});
+Route::get('/Detalle', 'detalleController@index3');
 
 Route::get('/Detalle/CrearRelacion', "detalleController@create");
 Route::post('/AlmacenarRelacion', "detalleController@store");

@@ -11,6 +11,16 @@ use DB;
 
 class detalleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index3(Request $request)
+    {
+        $request->user()->authorizeRoles(['user', 'admin']);
+        return view('menuRecolector');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +28,7 @@ class detalleController extends Controller
      */
     public function index()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $puntos_reciclaje = puntos_reciclaje::all();
         return view('enlistarRelacion')->with('puntos_reciclaje', $puntos_reciclaje);
     }
@@ -29,6 +40,7 @@ class detalleController extends Controller
      */
     public function create()
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $puntos_reciclaje = puntos_reciclaje::all();
         $recolectores = recolectores::all();
         return view("crearRelacion")->with('puntos_reciclaje',$puntos_reciclaje)->with('recolectores',$recolectores);
