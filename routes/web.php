@@ -48,3 +48,6 @@ Route::get('/Detalle', function () {
 Route::get('/Detalle/CrearRelacion', "detalleController@create");
 Route::post('/AlmacenarRelacion', "detalleController@store");
 Route::get('/Detalle/Enlistar', 'detalleController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
