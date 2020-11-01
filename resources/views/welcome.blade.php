@@ -84,11 +84,11 @@
                     Reciclaje
                 </div>
 
-                <div class="links">
+                <!-- <div class="links">
                     <a href="/PuntoReciclaje">Punto Reciclaje</a>
                     <a href="/Recolector">Recolector</a>
                     <a href="/Detalle">Detalle</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>
