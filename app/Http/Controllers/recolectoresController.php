@@ -22,27 +22,35 @@ class recolectoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
         $recolectores = recolectores::all();
         return view("enlistarRecolector")->with('recolectores',$recolectores);
     }
-    public function index2()
+    public function index2(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        $recolectores = recolectores::all();
-        return view("editarRecolector")->with('recolectores',$recolectores);
+        if($request->user()->getRol('user') == 0){
+            $recolectores = recolectores::all();
+            return view("editarRecolector")->with('recolectores',$recolectores);
+        }else{
+            return "No cuentas con la autorización";
+        }
     }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        return view("crearRecolector");
+        if($request->user()->getRol('user') == 0){
+            return view("crearRecolector");
+        }else{
+            return "No cuentas con la autorización";
+        }
     }
 
     /**

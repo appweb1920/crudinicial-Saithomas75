@@ -22,18 +22,22 @@ class puntos_rController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
         $puntos_reciclaje = puntos_reciclaje::all();
         return view("enlistarPunto")->with('puntos_reciclaje',$puntos_reciclaje);
     }
 
-    public function index2()
+    public function index2(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        $puntos_reciclaje = puntos_reciclaje::all();
-        return view("editarPunto")->with('puntos_reciclaje',$puntos_reciclaje);
+        if($request->user()->getRol('user') == 0){
+            $puntos_reciclaje = puntos_reciclaje::all();
+            return view("editarPunto")->with('puntos_reciclaje',$puntos_reciclaje);
+        }else{
+            return "No cuentas con la autorización";
+        }
     }
 
     /**
@@ -41,10 +45,14 @@ class puntos_rController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        return view("crearPuntos");
+        if($request->user()->getRol('user') == 0){
+            return view("crearPuntos");
+        }else{
+            return "No cuentas con la autorización";
+        }
     }
 
     /**

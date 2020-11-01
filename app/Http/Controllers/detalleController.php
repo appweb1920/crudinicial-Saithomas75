@@ -14,19 +14,19 @@ class detalleController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
+    } 
 
     public function index3(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        return view('menuRecolector');
+        return view('menuDetalle');
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
         $puntos_reciclaje = puntos_reciclaje::all();
@@ -38,12 +38,16 @@ class detalleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        $puntos_reciclaje = puntos_reciclaje::all();
+        if($request->user()->getRol('user') == 0){
+            $puntos_reciclaje = puntos_reciclaje::all();
         $recolectores = recolectores::all();
         return view("crearRelacion")->with('puntos_reciclaje',$puntos_reciclaje)->with('recolectores',$recolectores);
+        }else{
+            return "No cuentas con la autorización";
+        }
     }
 
     /**
