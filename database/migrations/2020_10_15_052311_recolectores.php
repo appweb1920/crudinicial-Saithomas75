@@ -16,7 +16,7 @@ class Recolectores extends Migration
         Schema::create('recolectores', function (Blueprint $table) {
             $table->bigIncrements('id_r');
             $table->string('nombre');
-            $table->date('dia');
+            $table->string('dia');
             $table->softDeletes();
             $table->timestamps();
         });

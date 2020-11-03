@@ -64,8 +64,26 @@
         <form action="/AlmacenarPunto" method="POST">
             @csrf
             <input type="text" name="tipo" placeholder="Tipo de Basura">
-            Fecha apertura <input type="date" name="apertura">
-            Fecha cierre <input type="date" name="cierre">
+            <label for="apert">Fecha apertura</label>
+            <select name="apertura" id="apert">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miércoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sábado">Sábado</option>
+            </select>
+            <input type="time" name="horaA">
+            <label for="cierr"> Fecha cierre</label>
+            <select name="cierre" id="cierr">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miércoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sábado">Sábado</option>
+            </select>
+            <input type="time" name="horaC">
             <button type="submit">Guardar</button>
         </form>
     </div>

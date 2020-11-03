@@ -12,7 +12,7 @@ class puntos_reciclaje extends Model
 {
     use SoftDeletes;
     protected $table = 'puntos_reciclaje';
-    protected $fillable = ['tipo_basura', 'apertura', 'cierre'];
+    protected $fillable = ['tipo_basura', 'apertura', 'horaA','cierre', 'horaC'];
 
     public function getRecolector(){
         $recolector = DB::select("SELECT recolectores.nombre FROM recolectores

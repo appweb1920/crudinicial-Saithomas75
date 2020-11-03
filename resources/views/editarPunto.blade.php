@@ -72,7 +72,9 @@
             <tr>
                 <td>{{$p->tipo_basura}}</td>
                 <td>{{$p->apertura}}</td>
+                <td>{{$p->horaA}}</td>
                 <td>{{$p->cierre}}</td>
+                <td>{{$p->horaC}}</td>
                 <td>
                     <button type="button" class="btn btn-warning">
                         <a href='/EditarPunto/{{$p->id_pr}}'>Editar</a>

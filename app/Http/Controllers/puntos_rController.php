@@ -66,7 +66,9 @@ class puntos_rController extends Controller
         $puntos_reciclaje = new puntos_reciclaje;
         $puntos_reciclaje->tipo_basura = $request->tipo;
         $puntos_reciclaje->apertura = $request->apertura;
+        $puntos_reciclaje->horaA = $request->horaA;
         $puntos_reciclaje->cierre = $request->cierre;
+        $puntos_reciclaje->horaC = $request->horaC;
         $puntos_reciclaje->save();
 
         return redirect("/PuntoReciclaje");
@@ -90,7 +92,7 @@ class puntos_rController extends Controller
     }
     public function guardaEdicion(Request $request)
     {
-        $puntos_reciclaje = puntos_reciclaje::where('id_pr', $request->id)->update(['tipo_basura' => $request->tipo, 'apertura' => $request->apertura, 'cierre' => $request->cierre]);
+        $puntos_reciclaje = puntos_reciclaje::where('id_pr', $request->id)->update(['tipo_basura' => $request->tipo, 'apertura' => $request->apertura, 'horaA' => $request->horaA, 'cierre' => $request->cierre, 'horaC' => $request->horaC]);
         return redirect('/PuntoReciclaje');
     }
     public function borra($id){

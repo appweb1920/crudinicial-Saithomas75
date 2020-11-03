@@ -62,8 +62,26 @@
         @csrf
         <input type="hidden" name="id" value="{{$puntos_reciclaje->id_pr}}">
         <input type="text" name="tipo" value="{{$puntos_reciclaje->tipo_basura}}">
-        Fecha apertura <input type="date" name="apertura" value="{{$puntos_reciclaje->apertura}}">
-        Fecha cierre <input type="date" name="cierre" value="{{$puntos_reciclaje->cierre}}">
+        <label for="apert">Fecha apertura</label>
+        <select name="apertura" id="apert">
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+        </select>
+        <input type="time" name="horaA" value="{{$puntos_reciclaje->horaA}}">
+        <label for="cierr"> Fecha cierre</label>
+        <select name="cierre" id="cierr">
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+        </select>
+        <input type="time" name="horaC" value="{{$puntos_reciclaje->horaC}}">
         <button type="submit">Guardar</button>
     </form>
 </body>

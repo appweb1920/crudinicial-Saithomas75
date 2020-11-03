@@ -64,7 +64,7 @@
         <form action="/AlmacenarRecolector" method="POST">
             @csrf
             <input type="text" name="nombre" placeholder="Nombre">
-            Día <input type="date" name="dia">
+            <input type="text" name="dia" placeholder="Día">
             <button type="submit">Guardar</button>
         </form>
     </div>

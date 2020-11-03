@@ -60,8 +60,10 @@
     <thead>
       <tr>
         <th>Punto</th>
-        <th>Fecha Apertura</th>
-        <th>Fecha Cierre</th>
+        <th>Día Apertura</th>
+        <th>Día Cierre</th>
+        <th>Hora Apertura</th>
+        <th>Hora Cierre</th>
       </tr>
     </thead>
     <tbody>
@@ -71,6 +73,8 @@
                 <td>{{$p->tipo_basura}}</td>
                 <td>{{$p->apertura}}</td>
                 <td>{{$p->cierre}}</td>
+                <td>{{$p->horaA}}</td>
+                <td>{{$p->horaC}}</td>
             <tr>
         @endforeach
     @endif
